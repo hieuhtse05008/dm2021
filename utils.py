@@ -2,11 +2,11 @@ import json
 import statistics
 
 
-def loadData():
+def loadData(limit = 0):
     documents = []
     with open("./yelp_academic_dataset_review.json", "r") as f:
         for i, text in enumerate(f):
-            if(i == 10):
+            if(limit > 0 and i == limit):
                 break
 
             jsonText = json.loads(text)

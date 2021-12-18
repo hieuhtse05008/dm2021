@@ -17,9 +17,9 @@ while True:
         argMin = distances.index(min(distances))
         clusters[argMin].addPoint(p)
 
-    print(clusters)
+    #print(clusters)
     newCentroids = [Point(c.getCentroid()) for c in clusters]
-    print(f"Centroids: {[c.getCentroid for c in clusters]}")
+    #print(f"Centroids: {[c.getCentroid for c in clusters]}")
     centroidsDiffs = []
     for c1, c2 in zip(centroids, newCentroids):
         centroidsDiffs.append(c1.dist(c2))
@@ -31,4 +31,6 @@ while True:
     centroids = newCentroids
     if sse < 1:
         print("Stop")
+        print(f"{[len(c.points) for c in clusters]}")
         break
+    
